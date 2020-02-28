@@ -3,8 +3,10 @@ import requests
 
 
 class Scraper():
+    url = 'https://www.kadr-az.info/bos-vakansiyalar/29942-texniki-mutexessis'
+    headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36'}
     def __init__(self):
-        response = requests.get('https://www.kadr-az.info/bos-vakansiyalar/29942-texniki-mutexessis', headers={'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36'})
+        response = requests.get(self.url, headers=self.headers)
         self.soup = BeautifulSoup(response.content, 'html.parser')
 
     def get_requirements(self):
